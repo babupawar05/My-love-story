@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shubham ❤️ Sakshi</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+<audio id="bgm" preload="auto">
+  <source src="kaisa hua.mp3" type="audio/mp3">
+</audio>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  overflow-x:hidden;
+  font-family:'Poppins',sans-serif;
+  background:#000;
+  color:white;
+}
+
+/* CINEMATIC BACKGROUND */
+.hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)),
+  url('https://w.wallpaperflare.com/wallpaper/1000/655/62/silhouette-couple-on-island-with-tree-artwork-love-night-the-moon-wallpaper-jcer.jpg');
+  background-size:cover;
+  background-position:center center;
+  animation:zoomBg 25s infinite alternate ease-in-out;
+  transform:scale(1);
+}
+
+@keyframes zoomBg{
+  0%{transform:scale(1) rotate(0deg);} 
+  50%{transform:scale(1.08) rotate(0.5deg);} 
+  100%{transform:scale(1.15) rotate(-0.5deg);} 
+}
+
+/* CINEMATIC LIGHT FLASH */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.12),transparent);
+  animation:lightSweep 8s linear infinite;
+}
+
+@keyframes lightSweep{
+  0%{transform:translateX(-120%);} 
+  100%{transform:translateX(120%);} 
+}
+
+/* AURORA GLOW */
+.aurora{
+  position:absolute;
+  width:1200px;
+  height:1200px;
+  background:radial-gradient(circle,rgba(255,0,128,0.15),transparent 60%);
+  filter:blur(60px);
+  animation:auroraMove 15s ease-in-out infinite alternate;
+}
+
+@keyframes auroraMove{
+  0%{transform:translate(-20%,-10%) scale(1);} 
+  100%{transform:translate(10%,10%) scale(1.2);} 
+}
+  to{transform:scale(1.15);}
+}
+
+/* STARS */
+.stars{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:twinkle 4s infinite alternate;
+}
+
+@keyframes twinkle{
+  from{opacity:0.2; transform:scale(1);}
+  to{opacity:1; transform:scale(1.8);}
+}
+
+/* FLOATING HEARTS */
+.hearts span{
+  position:absolute;
+  bottom:-50px;
+  color:rgba(255,255,255,0.8);
+  animation:floatUp linear infinite;
+}
+
+@keyframes floatUp{
+  from{
+    transform:translateY(0) scale(0);
+    opacity:0;
+  }
+  20%{
+    opacity:1;
+  }
+  to{
+    transform:translateY(-120vh) scale(1.5);
+    opacity:0;
+  }
+}
+
+/* HERO CONTENT */
+.hero-content{
+  position:relative;
+  z-index:10;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
+
+.top-text{
+  letter-spacing:5px;
+  font-size:0.9rem;
+  margin-bottom:15px;
+  opacity:0;
+  animation:fadeUp 1.5s forwards;
+}
+
+.main-title{
+  font-size:clamp(3rem,8vw,6rem);
+  font-family:'Great Vibes',cursive;
+  color:#fff;
+  text-shadow:0 0 20px rgba(255,255,255,0.5);
+  opacity:0;
+  animation:fadeUp 2s 0.5s forwards;
+}
+
+.subtitle{
+  max-width:700px;
+  margin-top:20px;
+  line-height:1.8;
+  font-size:1rem;
+  opacity:0;
+  animation:fadeUp 2s 1s forwards;
+}
+
+.scroll-down{
+  position:absolute;
+  bottom:30px;
+  font-size:0.9rem;
+  animation:bounce 2s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(10px);}
+}
+
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* STORY TIMELINE */
+.timeline{
+  position:relative;
+  padding:100px 20px;
+  background:linear-gradient(#050505,#111);
+}
+
+.timeline::before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:0;
+  width:3px;
+  height:100%;
+  background:linear-gradient(transparent,#ff4d6d,transparent);
+  transform:translateX(-50%);
+}
+
+.story-card{
+  overflow:hidden;
+  position:relative;
+  width:min(90%,380px);
+  padding:25px;
+  margin:80px auto;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  border-radius:25px;
+  box-shadow:0 0 40px rgba(255,77,109,0.15);
+  opacity:0;
+  transform:translateY(80px);
+  transition:1s;
+}
+
+.story-card::before{
+  content:"";
+  position:absolute;
+  top:-100%;
+  left:-100%;
+  width:250%;
+  height:250%;
+  background:linear-gradient(45deg,transparent,rgba(255,255,255,0.08),transparent);
+  transform:rotate(25deg);
+  animation:cardShine 8s linear infinite;
+}
+
+@keyframes cardShine{
+  0%{transform:translateX(-100%) rotate(25deg);} 
+  100%{transform:translateX(100%) rotate(25deg);}
+}
+
+.story-card:hover{
+  transform:translateY(-12px) scale(1.03);
+  box-shadow:0 0 60px rgba(255,77,109,0.35);
+}
+
+.story-card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.story-card.left{
+  margin-right:auto;
+}
+
+.story-card.right{
+  margin-left:auto;
+}
+
+.story-card h2{
+  color:#ff8aa0;
+  margin-bottom:15px;
+}
+
+.story-card p{
+  line-height:1.8;
+  color:#eee;
+}
+
+.story-icon{
+  font-size:45px;
+  margin-bottom:15px;
+}
+
+/* LOVE QUOTE */
+.quote-section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+  position:relative;
+  overflow:hidden;
+}
+
+.quote-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.8)),
+  url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1600&auto=format&fit=crop');
+  background-size:cover;
+  background-position:center;
+  animation:zoomBg 20s infinite alternate;
+}
+
+.quote{
+  position:relative;
+  z-index:2;
+  max-width:850px;
+  font-size:clamp(2rem,5vw,4rem);
+  line-height:1.5;
+  font-family:'Great Vibes',cursive;
+  text-shadow:0 0 20px rgba(255,255,255,0.3);
+}
+
+/* FINAL PROPOSAL */
+.final-section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+  background:radial-gradient(circle at center,#1a0010,#000);
+  position:relative;
+  overflow:hidden;
+}
+
+.proposal-box{
+  animation:proposalFloat 5s ease-in-out infinite;
+  position:relative;
+  z-index:10;
+  width:min(95%,500px);
+  text-align:center;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.1);
+  backdrop-filter:blur(15px);
+  padding:40px 30px;
+  border-radius:30px;
+  box-shadow:0 0 50px rgba(255,77,109,0.2);
+}
+
+@keyframes proposalFloat{
+  0%,100%{transform:translateY(0);} 
+  50%{transform:translateY(-10px);}
+}
+
+.ring{
+  font-size:70px;
+  animation:ringGlow 2s infinite alternate;
+}
+
+@keyframes ringGlow{
+  from{transform:scale(1); filter:drop-shadow(0 0 5px gold);}
+  to{transform:scale(1.1); filter:drop-shadow(0 0 20px gold);}
+}
+
+.proposal-box h1{
+  font-size:clamp(2.5rem,6vw,4rem);
+  margin:20px 0;
+  font-family:'Great Vibes',cursive;
+}
+
+.proposal-box p{
+  line-height:1.8;
+  margin-bottom:25px;
+  color:#eee;
+}
+
+.btns{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+button{
+  border:none;
+  padding:14px 28px;
+  border-radius:50px;
+  cursor:pointer;
+  font-weight:700;
+  font-size:1rem;
+  transition:0.3s;
+}
+
+.yes{
+  background:#ff4d6d;
+  color:white;
+  box-shadow:0 0 20px rgba(255,77,109,0.5);
+}
+
+.yes:hover{
+  transform:scale(1.08);
+}
+
+.no{
+  background:white;
+  color:#333;
+  position:relative;
+}
+
+/* FINAL MESSAGE */
+.final-message{
+  position:fixed;
+  left:50%;
+  bottom:25px;
+  transform:translateX(-50%) translateY(120px);
+  background:white;
+  color:#ff4d6d;
+  padding:15px 25px;
+  border-radius:50px;
+  font-weight:700;
+  z-index:9999;
+  opacity:0;
+  transition:0.5s;
+  box-shadow:0 0 30px rgba(255,77,109,0.5);
+}
+
+.final-message.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+/* CONFETTI */
+.confetti{
+  position:fixed;
+  width:10px;
+  height:10px;
+  top:-20px;
+  z-index:999;
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(720deg);
+    opacity:0;
+  }
+}
+
+/* DREAM MODAL */
+.dream-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  backdrop-filter:blur(10px);
+  z-index:99999;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
+}
+
+.dream-content{
+  width:min(100%,1000px);
+  max-height:90vh;
+  overflow-y:auto;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:30px;
+  padding:30px;
+  position:relative;
+}
+
+.dream-content h1{
+  text-align:center;
+  margin-bottom:30px;
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+}
+
+.close{
+  position:absolute;
+  right:20px;
+  top:20px;
+  font-size:24px;
+  cursor:pointer;
+}
+
+.places-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+.place-card{
+  background:rgba(255,255,255,0.08);
+  border-radius:20px;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.place-card{
+  position:relative;
+  overflow:hidden;
+}
+
+.place-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent);
+  transform:translateX(-100%);
+  animation:imageShine 6s infinite;
+}
+
+@keyframes imageShine{
+  100%{transform:translateX(100%);} 
+}
+
+.place-card:hover{
+  transform:translateY(-10px) scale(1.02);
+}
+
+.place-card img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+}
+
+.place-card h3{
+  padding:15px 15px 5px;
+}
+
+.place-card p{
+  padding:0 15px 20px;
+  color:#ddd;
+}
+
+@media(max-width:768px){
+
+.timeline::before{
+  left:20px;
+}
+
+.story-card{
+  margin-left:40px !important;
+  width:calc(100% - 50px);
+}
+
+.main-title{
+  line-height:1.2;
+}
+
+.quote{
+  line-height:1.4;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="stars"></div>
+  <div class="aurora"></div>
+
+  <div class="hearts">
+    <span style="left:10%; animation-duration:7s; font-size:20px;">❤️</span>
+    <span style="left:30%; animation-duration:10s; font-size:30px;">❤️</span>
+    <span style="left:50%; animation-duration:8s; font-size:25px;">❤️</span>
+    <span style="left:70%; animation-duration:11s; font-size:18px;">❤️</span>
+    <span style="left:90%; animation-duration:9s; font-size:28px;">❤️</span>
+  </div>
+
+  <div class="hero-content">
+
+    <div class="top-text">A LOVE STORY WRITTEN BY DESTINY</div>
+
+    <h1 class="main-title">Shubham ❤️ Sakshi</h1>
+
+    <p class="subtitle">
+      Some stories are not written with words. They are written with late night talks,
+      endless smiles, silent prayers, unforgettable memories, and two hearts slowly
+      becoming one soul.
+    </p>
+
+    <div class="scroll-down">Scroll Down ✨</div>
+
+  </div>
+
+</section>
+
+<!-- TIMELINE -->
+<section class="timeline">
+
+  <div class="story-card left reveal" onclick="openModal('messageModal')" style="cursor:pointer;">
+    <div class="story-icon">💬</div>
+    <h2>First Message</h2>
+    <p>
+      The moment your message appeared on my screen,
+      something inside my heart quietly whispered,
+      “She is special.”
+      <br><br>
+      <strong>Tap to relive our first chats ❤️</strong>
+    </p>
+  </div>
+
+  <div class="dream-modal" id="messageModal">
+    <div class="dream-content">
+      <span class="close" onclick="closeModal('messageModal')">✖</span>
+      <h1>Our First Conversations ❤️</h1>
+      <div class="places-grid">
+        <div class="place-card">
+          <h3>First Hi 💬</h3>
+          <p>One simple message changed everything forever ✨</p>
+        </div>
+        <div class="place-card">
+          
+          <h3>Late Replies 🌙</h3>
+          <p>Waiting for your texts became my favorite habit ❤️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card right reveal" onclick="openModal('meetModal')" style="cursor:pointer;">
+    <div class="story-icon">📍</div>
+    <h2>First Meet</h2>
+    <p>
+      The day I met you in your house wearing that beautiful traditional look,
+      I think my heart secretly decided you were the one ❤️
+      <br><br>
+      <strong>Tap to relive that beautiful moment ✨</strong>
+    </p>
+  </div>
+
+  <div class="dream-modal" id="meetModal">
+    <div class="dream-content">
+      <span class="close" onclick="closeModal('meetModal')">✖</span>
+
+      <h1>That Beautiful Day ❤️</h1>
+
+      <div class="places-grid">
+
+        <div class="place-card">
+          
+          <h3>First Look ✨</h3>
+          <p>
+            The moment I saw you in that traditional look,
+            even my heartbeat forgot its rhythm ❤️
+          </p>
+        </div>
+
+        <div class="place-card">
+          
+          <h3>Your Smile 😊</h3>
+          <p>
+            One smile from you,
+            and suddenly every love song started making sense 💖
+          </p>
+        </div>
+
+        <div class="place-card">
+          <h3>Traditional Beauty 🌸</h3>
+          <p>
+            You looked so beautiful,
+            even the moon would feel shy standing next to you ✨
+          </p>
+        </div>
+
+        <div class="place-card">
+          
+          <h3>That Feeling 💞</h3>
+          <p>
+            I didn’t just meet you that day…
+            I quietly started falling for you forever ❤️
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="story-card left reveal">
+    <div class="story-icon">🌙</div>
+    <h2>Late Night Talks</h2>
+    <p>
+      Nights became shorter because talking to you felt like home.
+      Even silence felt beautiful.
+    </p>
+  </div>
+
+  <div class="story-card right reveal">
+    <div class="story-icon">📸</div>
+    <h2>Memories</h2>
+    <p>
+      Every picture with you became a memory I never wanted to lose.
+      Every second became timeless.
+    </p>
+  </div>
+
+  <div class="story-card left reveal" onclick="openDreams()" style="cursor:pointer;">
+    <div class="story-icon">✈️</div>
+    <h2>Dreams Together</h2>
+    <p>
+      I don’t care where life takes us.
+      As long as your hand is in mine,
+      every destination will feel magical.
+      <br><br>
+      <strong>Tap to explore our dream places ❤️</strong>
+    </p>
+  </div>
+
+  <!-- DREAM PLACES MODAL -->
+  <div class="dream-modal" id="dreamModal">
+
+    <div class="dream-content">
+
+      <span class="close" onclick="closeDreams()">✖</span>
+
+      <h1>Places We Will Explore Together ❤️</h1>
+
+      <div class="places-grid">
+
+        <div class="place-card">
+          <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?q=80&w=1200&auto=format&fit=crop">
+          <h3>Paris 🇫🇷</h3>
+          <p>Holding your hand under the Eiffel Tower ✨</p>
+        </div>
+
+        <div class="place-card">
+          <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop">
+          <h3>Maldives 🌊</h3>
+          <p>Sunsets, beaches, and endless love 💖</p>
+        </div>
+
+        <div class="place-card">
+          <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop">
+          <h3>Jaipur 🏰</h3>
+          <p>Royal memories in the pink city ❤️</p>
+        </div>
+
+        <div class="place-card">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200&auto=format&fit=crop">
+          <h3>Bali 🌴</h3>
+          <p>Beautiful sunsets and peaceful moments ✨</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- QUOTE -->
+<section class="quote-section">
+
+  <div class="quote">
+    “In a world full of temporary things,
+    you became my forever.” ❤️
+  </div>
+
+</section>
+
+<!-- FINAL PROPOSAL -->
+<section class="final-section">
+
+  <div class="proposal-box">
+
+    <div class="ring">💍</div>
+
+    <h1>Will You Be Mine Forever?</h1>
+
+    <p>
+      I want to create a thousand more memories with you,
+      laugh with you, travel with you, grow with you,
+      and love you more every single day.
+    </p>
+
+    <div class="btns">
+      <button class="yes" onclick="celebrate()">Yes ❤️</button>
+      <button class="no" onmouseover="move(this)">No 😅</button>
+    </div>
+
+  </div>
+
+</section>
+
+<div class="final-message" id="msg">
+  🎉 You are mine forever ❤️
+</div>
+
+<script>
+
+/* STARS */
+const stars = document.querySelector('.stars');
+
+for(let i=0;i<120;i++){
+  const star = document.createElement('div');
+  star.classList.add('star');
+  star.style.left = Math.random()*100 + '%';
+  star.style.top = Math.random()*100 + '%';
+  star.style.animationDelay = Math.random()*5 + 's';
+  stars.appendChild(star);
+}
+
+/* REVEAL ANIMATION */
+const reveals = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  })
+},{threshold:0.2});
+
+reveals.forEach(r=>observer.observe(r));
+
+/* NO BUTTON */
+let i=0;
+const msgs=[
+  'Think Again 🥺',
+  'Impossible ❤️',
+  'No Option 😭',
+  'Only Yes 💖',
+  'Please 😘'
+];
+
+function move(btn){
+  btn.style.transform=`translate(${Math.random()*120-60}px,${Math.random()*80-40}px)`;
+  btn.innerText=msgs[i++ % msgs.length];
+}
+
+function openModal(id){
+  document.getElementById(id).style.display='flex';
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display='none';
+}
+
+function openDreams(){
+  document.getElementById('dreamModal').style.display='flex';
+}
+
+function closeDreams(){
+  document.getElementById('dreamModal').style.display='none';
+}
+
+/* YES CELEBRATION */
+
+function celebrate(){
+
+  const msg=document.getElementById('msg');
+  msg.classList.add('show');
+
+  setTimeout(()=>{
+    msg.classList.remove('show');
+  },5000);
+
+  for(let i=0;i<180;i++){
+
+    const c=document.createElement('div');
+    c.classList.add('confetti');
+
+    c.style.left=Math.random()*window.innerWidth+'px';
+    c.style.background=[
+      '#ff4d6d',
+      '#fff',
+      '#ffd700',
+      '#00e5ff',
+      '#ff85a2'
+    ][Math.floor(Math.random()*5)];
+
+    c.style.animationDuration=(Math.random()*3+2)+'s';
+
+    document.body.appendChild(c);
+
+    setTimeout(()=>c.remove(),5000);
+
+    const bgm = document.getElementById("bgm");
+bgm.currentTime = 0;
+bgm.play();
+  }
+}
+
+</script>
+
+</body>
+</html>
+```
